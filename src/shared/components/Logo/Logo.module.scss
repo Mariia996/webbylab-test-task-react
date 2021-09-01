@@ -1,0 +1,19 @@
+@import '../../styles/base';
+
+.logo_link {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.167;
+  color: var(--border-color);
+  text-transform: uppercase;
+  text-decoration: none;
+  &_firstLetter {
+    color: var(--accent-color);
+  }
+
+  @include mobile-end {
+    font-size: 18px;
+  }
+}

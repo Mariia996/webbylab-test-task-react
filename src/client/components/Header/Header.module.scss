@@ -1,0 +1,12 @@
+@import '../../../shared/styles/base';
+@import '../../../shared/styles/common';
+
+.header {
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  @include flex(space-between, center);
+}

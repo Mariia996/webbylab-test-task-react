@@ -1,0 +1,39 @@
+@import '../../../shared/styles/base';
+
+// .movieList {
+
+// }
+
+.movieItem {
+  width: 300px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
+  &_text {
+    font-weight: 400;
+  }
+  &_title:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}
+
+.starts_list {
+  margin-top: 5px;
+  font-weight: 400;
+  padding-left: 10px;
+}
+
+.btn {
+  padding: 4px 6px;
+  margin-top: 10px;
+  &_container::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+  }
+}
