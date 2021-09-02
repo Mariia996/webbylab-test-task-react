@@ -1,35 +1,23 @@
 import { useState } from 'react';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
-
+import AuthSignUp from '../AuthSignUp/AuthSignUp';
+import AuthSignIn from '../AuthSignIn/AuthSignIn';
 import Button from '../../../shared/components/Button';
-import Input from '../../../shared/components/Input';
-import { fields } from './fields';
-import { initialState } from './initialState';
-import useForm from '../../../shared/hooks/useForm';
+
 import s from './AuthForm.module.scss';
 
 const AuthForm = () => {
     const [actionType, setActionType] = useState('');
-    // const dispatch = useDispatch();
-
-     const onSubmit = data => {
-    // const action = actionType === 'login' ? logIn(data) : register(data);
-    // dispatch(action);
-  };
-
-     const [data, , handleChange, handleSubmit] = useForm({ initialState, onSubmit });
 
     return (  <div className={s.authFormContainer}>
       <div className={s.formGroup}>
-        <p className={s.formGroupText}>Login to our app using e-mail and password:</p>
-        <form onSubmit={handleSubmit}>
-          <Input {...fields.email} value={data.email} onChange={handleChange} className={s.inputEmail}/>
-          <Input {...fields.password} value={data.password} onChange={handleChange}/>
-          <div className={s.buttonContainer}>
-            <Button className={s.button} type="submit" onClick={() => setActionType('login')}>Sign in</Button>
-            <Button className={s.button} type="submit" onClick={() => setActionType('register')}>Sign up</Button>
-          </div>
-        </form>
+        {!actionType && <div className={s.choiceContainer}><p className={s.formGroupText}>You need to sign up or sign in:</p>
+        <div>
+          <Button className={s.button} onClick={() => setActionType('login')}>Sign in</Button>
+          <Button className={s.button} onClick={() => setActionType('register')}>Sign up</Button>
+        </div>
+        </div>}
+        {actionType === 'register' && <AuthSignUp handleClick={() => setActionType('')} />}
+        {actionType === 'login' && <AuthSignIn handleClick={() => setActionType('')} />}
       </div>
     </div> );
 }

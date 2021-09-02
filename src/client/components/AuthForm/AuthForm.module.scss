@@ -25,14 +25,13 @@
   margin-right: 20px;
 }
 
+.choiceContainer {
+  @include flex(center, center);
+  flex-direction: column;
+}
+
 .formGroup {
-  padding: 30px 20px 31px 20px;
-  @include tablet {
-    padding: 62px 57px 42px 57px;
-  }
-  @include desktop {
-    padding: 62px 40px 42px 42px;
-  }
+  padding: 30px 20px 30px 20px;
   &Text {
     font-size: 10px;
     line-height: 1.2;

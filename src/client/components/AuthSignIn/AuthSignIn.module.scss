@@ -1,0 +1,15 @@
+@import '../../../shared/styles/base';
+
+.formGroupText {
+  margin-bottom: 10px;
+}
+
+.input {
+  margin-bottom: 10px;
+}
+
+.button {
+  &Container {
+    @include flex(space-between);
+  }
+}

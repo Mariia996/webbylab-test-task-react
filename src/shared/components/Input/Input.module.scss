@@ -1,8 +1,7 @@
 @import '../../styles/base';
 
 .input {
-  width: 240px;
-  height: 56px;
+  width: 100%;
   background: var(--white-color);
   border: 1px solid var(--border-color);
   border-radius: 2px;
@@ -11,12 +10,8 @@
   letter-spacing: 0.02em;
   color: #000000;
   outline: none;
-  padding-left: 25px;
+  padding: 10px;
   &::placeholder {
     color: #bbbbbb;
-  }
-
-  @include tablet {
-    width: 425px;
   }
 }
