@@ -3,12 +3,15 @@ import { v4 } from 'uuid';
 import Button from '../../../shared/components/Button';
 import Input from '../../../shared/components/Input';
 import { fields } from './fields';
+import Modal from '../../../shared/components/Modal';
+import UploadFileModal from '../UploadFileModal/UploadFileModal';
 
 import s from './MenuPanel.module.scss';
 
 const MenuPanel = () => {
-    const [selectValue, setselectValue] = useState('Title')
-    const [inputValue, setinputValue] = useState('')
+    const [selectValue, setselectValue] = useState('Title');
+    const [inputValue, setinputValue] = useState('');
+    const [toggle, setToggle] = useState(false);
 
     const handleChange = ({ target }) => {
         const { value } = target;
@@ -19,6 +22,8 @@ const MenuPanel = () => {
         e.preventDefault()
     }
 
+
+
     const { filter } = fields;
     return (<div className={s.wrapper}>
         <ul className={s.btn_list}>
@@ -27,6 +32,9 @@ const MenuPanel = () => {
             </li>
             <li key={v4()} className={s.btn_item}>
                 <Button className={s.btn}>Your movies</Button>
+            </li>
+            <li key={v4()} className={s.btn_item}>
+                <Button className={s.btn} onClick={() => setToggle(!toggle)}>Upload movies</Button>
             </li>
         </ul>
         <div className={s.filter_container}>
@@ -49,6 +57,9 @@ const MenuPanel = () => {
                 <Button type="submit" className={s.input_btn}>Find</Button>
             </form>
         </div>
+        <Modal onClose={() => setToggle(!toggle)} className={toggle ? s.openModal : ''}>
+            <UploadFileModal />
+        </Modal>
     </div> );
 }
 

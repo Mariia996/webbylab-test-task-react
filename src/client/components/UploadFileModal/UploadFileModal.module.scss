@@ -1,0 +1,20 @@
+@import '../../../shared/styles/base';
+
+.wrapper {
+  width: 300px;
+  height: 250px;
+  @include flex(center, center);
+}
+
+.form {
+  @include flex(_, center);
+  flex-direction: column;
+}
+.input {
+  width: 230px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 5px 10px;
+}

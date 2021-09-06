@@ -1,16 +1,5 @@
 @import '../../../shared/styles/base';
 
-.wrapper {
-  @include flex(_, center);
-}
-
-.user {
-  margin-right: 10px;
-  @include mobile-end {
-    font-size: 10px;
-  }
-}
-
 .logout {
   cursor: pointer;
   &:hover,

@@ -61,7 +61,7 @@ class BaseHttpService {
     const { accessToken } = this;
     return {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        Authorization: `${accessToken}`,
       },
     };
   }

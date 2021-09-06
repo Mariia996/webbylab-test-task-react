@@ -14,9 +14,11 @@
 .btn {
   @include mobile-end {
     font-size: 10px;
-    width: 62px;
-    height: 30px;
-    padding: 0;
+    padding: 5px;
+  }
+  @include tablet-snippet {
+    font-size: 12px;
+    padding: 10px;
   }
 }
 
@@ -25,7 +27,7 @@
 }
 
 .btn_item {
-  &:first-child {
+  &:not(:last-child) {
     margin-right: 5px;
     @include tablet {
       margin-right: 20px;
@@ -102,4 +104,10 @@
       margin-left: 10px;
     }
   }
+}
+
+.openModal {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: visible;
 }

@@ -1,6 +1,8 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 import { routes } from './routes';
+import { currentUser } from '../../../redux/auth/auth-operatons';
 
 import LoaderSpinner from '../../../shared/components/Loader';
 import Header from '../../../client/components/Header';
@@ -10,6 +12,11 @@ const AuthPage = lazy(() => import('../../../pages/AuthPage') /* webpackChunkNam
 const MainPage = lazy(() => import('../../../pages/MainPage') /* webpackChunkName: "MainPage" */);
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(currentUser())
+  }, [dispatch])
+  
   const { auth, main } = routes;
   return (
      <Router>

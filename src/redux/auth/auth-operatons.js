@@ -6,7 +6,13 @@ import {
     registerError,
     loginRequest,
     loginSuccess,
-    loginError
+    loginError,
+    currentUserRequest,
+    currentUserSuccess,
+    currentUserError,
+    logoutRequest,
+    logoutSuccess,
+    logoutError
 } from './auth-actions';
 
 const authService = new AuthService();
@@ -28,5 +34,25 @@ export const login = body => async dispatch => {
         dispatch(loginSuccess(data))
     } catch (error) {
         dispatch(loginError(error))
+    }
+}
+
+export const currentUser = () => async dispatch => {
+    dispatch(currentUserRequest())
+    try {
+        const token = await authService.getToken();
+        dispatch(currentUserSuccess(token))
+    } catch (error) {
+        dispatch(currentUserError(error))
+    }
+}
+
+export const logout = () => async dispatch => {
+    dispatch(logoutRequest())
+    try {
+        await authService.removeToken();
+        dispatch(logoutSuccess())
+    } catch (error) {
+        dispatch(logoutError(error))
     }
 }

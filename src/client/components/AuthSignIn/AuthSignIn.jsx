@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import Button from '../../../shared/components/Button';
 import Input from '../../../shared/components/Input';
@@ -7,7 +6,6 @@ import { fields } from './fields';
 import { initialState } from './initialState';
 import useForm from '../../../shared/hooks/useForm';
 import { login } from '../../../redux/auth/auth-operatons';
-
 
 import s from './AuthSignIn.module.scss';
 

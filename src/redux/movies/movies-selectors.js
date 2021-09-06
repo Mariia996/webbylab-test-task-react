@@ -1,0 +1,1 @@
+export const getImportedMovies = state => state.movies.movies;

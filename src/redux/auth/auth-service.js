@@ -1,9 +1,9 @@
 import BaseHttpService from "../../shared/service/base-http-service";
 
 class AuthService extends BaseHttpService {
-    reister(body) {
+    async reister(body) {
         try {
-            const data = this.post('users', body);
+            const data = await this.post('users', body);
             this.saveToken(data.token);
             return data;
         } catch (error) {
@@ -11,9 +11,9 @@ class AuthService extends BaseHttpService {
         }
     }
 
-    login(body) {
+    async login(body) {
         try {
-            const data = this.post('sessions', body);
+            const data = await this.post('sessions', body);
             this.saveToken(data.token);
             return data;
         } catch (error) {
